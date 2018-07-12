@@ -7,6 +7,7 @@ const typeDefs = `
     name: String!
     resident: Boolean!
     age: Int
+    image: String
   }
   
   type Query {

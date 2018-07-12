@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 const CatSchema = new Schema({
     name: { type: String, required: true },
     resident: { type: Boolean, required: true },
-    age: { type: Number, required: false }
+    age: { type: Number, required: false },
+    image: { type: String, required: false}
 })
 
 export default mongoose.model('cat', CatSchema);
