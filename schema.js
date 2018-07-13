@@ -7,7 +7,9 @@ const typeDefs = `
     name: String!
     resident: Boolean!
     age: Int
-    image: String
+    imageSmall: String
+    imageLarge: String
+    sex: String!
   }
   
   type Query {
@@ -20,6 +22,7 @@ const typeDefs = `
     name: String!
     resident: Boolean!
     age: Int
+    sex: String!
   }
   
   type Mutation {

@@ -8,7 +8,9 @@ const CatSchema = new Schema({
     name: { type: String, required: true },
     resident: { type: Boolean, required: true },
     age: { type: Number, required: false },
-    image: { type: String, required: false}
+    imageSmall: { type: String, required: false},
+    imageLarge: { type: String, required: false},
+    sex: { type: String, enum: ['M', 'F'], required: true }
 })
 
 export default mongoose.model('cat', CatSchema);
