@@ -1,7 +1,18 @@
 import {resolvers} from "./resolvers";
 import {makeExecutableSchema} from "graphql-tools/dist/index";
+import { GraphQLDate } from 'graphql-iso-date';
 
 const typeDefs = `
+  scalar Date
+  
+  type DailyStats {
+    _id: ID!
+    date: Date!
+    eat: Boolean
+    urinate: Boolean
+    poo: Boolean
+  }
+  
   type Cat {
     _id: ID!
     name: String!
@@ -10,12 +21,14 @@ const typeDefs = `
     imageSmall: String
     imageLarge: String
     sex: String!
+    allHealthStats: [ DailyStats ] 
   }
   
   type Query {
     getAllCats: [Cat]
     getCat(_id: ID!): Cat
     getCurrentResidents(resident: Boolean!): [Cat]
+    getAllStatsForCat(_id: ID!): [ DailyStats ]
   }
   
   input CatInput {
@@ -27,7 +40,7 @@ const typeDefs = `
   
   type Mutation {
     createCat(input: CatInput) : Cat
-  }
+  },
 `;
 
 const schema = makeExecutableSchema({
