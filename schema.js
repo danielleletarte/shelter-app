@@ -1,6 +1,5 @@
 import {resolvers} from "./resolvers";
 import {makeExecutableSchema} from "graphql-tools/dist/index";
-import { GraphQLDate } from 'graphql-iso-date';
 
 const typeDefs = `
   scalar Date
@@ -28,7 +27,6 @@ const typeDefs = `
     getAllCats: [Cat]
     getCat(_id: ID!): Cat
     getCurrentResidents(resident: Boolean!): [Cat]
-    getAllStatsForCat(_id: ID!): [ DailyStats ]
   }
   
   input CatInput {
