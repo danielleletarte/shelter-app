@@ -24,7 +24,7 @@ export const resolvers = {
             return date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate();// value from the client (UI)
         },
         __serialize(value) {
-            return (value.getMonth()+1) + '-'+value.getDate() + '-'+value.getFullYear(); // value sent to the client (UI)
+            return value.getFullYear() + '' + ("0" + (value.getMonth()+1)).slice(-2) + '' + ("0" + value.getDate()).slice(-2); // value sent to the client (UI)
         },
         __parseLiteral(ast) {
             if (ast.kind === Kind.INT) {
