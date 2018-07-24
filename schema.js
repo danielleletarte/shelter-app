@@ -10,6 +10,7 @@ const typeDefs = `
     eat: Boolean
     urinate: Boolean
     poo: Boolean
+    notes: String
   }
   
   type Cat {
