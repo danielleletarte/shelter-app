@@ -15,13 +15,14 @@ export const resolvers = {
     Mutation: {
        async createCat(root, { input }) {
            return await Cat.create(input);
-       }
-    },
+       },
+        async updateDailyHealth(root, { input }) {
+            return await Cat.findOneAndUpdate({"allHealthStats._id": input._id}, { $set: { "allHealthStats.$": input }});
+    }},
     //https://www.apollographql.com/docs/graphql-tools/scalars.html
     Date: {
         __parseValue(value) {
-            new Date(value);
-            return date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate();// value from the client (UI)
+            return new Date(value);
         },
         __serialize(value) {
             return value.getFullYear() + '' + ("0" + (value.getMonth()+1)).slice(-2) + '' + ("0" + value.getDate()).slice(-2); // value sent to the client (UI)
