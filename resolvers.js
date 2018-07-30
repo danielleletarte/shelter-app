@@ -22,10 +22,10 @@ export const resolvers = {
     //https://www.apollographql.com/docs/graphql-tools/scalars.html
     Date: {
         __parseValue(value) {
-            return new Date(value);
+            return new Date(value); // value sent from client to server
         },
         __serialize(value) {
-            return value.getFullYear() + '' + ("0" + (value.getMonth()+1)).slice(-2) + '' + ("0" + value.getDate()).slice(-2); // value sent to the client (UI)
+            return value.getFullYear() + ' ' + ("0" + (value.getMonth()+1)).slice(-2) + ' ' + ("0" + value.getDate()).slice(-2); // value sent to the client (UI)
         },
         __parseLiteral(ast) {
             if (ast.kind === Kind.INT) {
